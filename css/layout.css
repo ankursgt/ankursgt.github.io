@@ -79,7 +79,7 @@ ul#nav {
    min-height: 48px;
    width: auto;
    text-align: center;
-   background-color: #000;
+   background-color: rgba(0, 0, 0, 0.5);
 }
 
 ul#nav li {
