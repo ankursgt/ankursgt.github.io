@@ -46,10 +46,10 @@ p.lead {
 a, a:visited {
    text-decoration: none;
    outline: 0;
-   color: #3BB4E1;
+   color: #fff;
 
 }
-a:hover, a:focus { color: #000; }
+a:hover, a:focus { color: #3BB4E1; }
 p a, p a:visited { line-height: inherit; }
 
 .skills{
@@ -91,6 +91,110 @@ p a, p a:visited { line-height: inherit; }
     clear: both;
 }
 
+.container {
+   position: relative;
+   background: #ebeeee;
+   width: 100%;
+   height: 300px;
+}
+
+.container .box {
+   position: relative;
+   width: calc(340px - 30px);
+   height: calc(200px - 30px);
+   background: #000;
+   float: left;
+   margin: 15px;
+   box-sizing: border-box;
+   overflow: hidden;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  
+}
+
+.container .box:before {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	box-sizing: border-box;
+	transition: 0.5s;
+	transform: scaleX(0);
+	opacity: 0;
+	z-index: 1;
+	
+}
+
+.container .box:hover:before {
+	transform: scaleX(1);
+	opacity: 1;
+}
+
+.container .box:after {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	box-sizing: border-box;
+	transition: 0.5s;
+	transform: scaleY(0);
+	opacity: 0;
+	z-index: 1;
+}
+
+.container .box:hover:after {
+	opacity: 1;
+}
+
+.container .box .imgBox {
+	position: relative;
+}
+
+.container .box .imgBox img{
+	width: 310px;
+	transition: 0.5s;
+}
+
+.container .box:hover .imgBox img {
+	opacity: .4;
+	transform: scale(1.2);
+}
+
+.container .box:hover .content {
+	display:block;
+}
+
+.container .box .content {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 55%;
+	padding: 5px;
+	transform: translateY(-50%);
+	z-index: 2;
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+	
+}
+
+.container .columns {
+	padding: 0 !important;
+}
+
+.container .box .content h2 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	transition: 0.5s;
+	font-size: 20px;
+}
+
 .column, .columns {
    position: relative;
    padding: 0 20px;
@@ -105,6 +209,11 @@ p a, p a:visited { line-height: inherit; }
       margin: 0 auto;
       padding: 0;
    }
+   
+   .container .box .imgBox img{
+	width: 100%;
+	transition: 0.5s;
+}
    .column, .columns {
       width: auto !important;
       float: none;
@@ -127,8 +236,13 @@ p a, p a:visited { line-height: inherit; }
 @media only screen and (max-width: 460px) {
 
    .row { width: auto; }
+   
+   .container {
+	   height: 600px;
+   }
 
 }
+
 
 .text-center  { text-align: center !important; }
 .align-center {
